@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/appbackground"
+    tools:context=".MainActivity">
+
+    <AutoCompleteTextView
+        android:id="@+id/gameAutoComplete"
+        android:layout_width="351dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:completionThreshold="1"
+        android:fontFamily="@font/aclonica"
+        android:hint="Insert the game's name"
+        android:maxLines="1"
+        android:textColor="#000000"
+        android:textColorHint="#1C1C1B"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choseGameTextView" />
+
+    <TextView
+        android:id="@+id/choseGameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="25dp"
+        android:background="#FFD400"
+        android:fontFamily="@font/aclonica"
+        android:text=" CHOOSE A GAME: "
+        android:textColor="#000000"
+        android:textColorHint="#FFFFFF"
+        android:textColorLink="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tlozImage" />
+
+    <TextView
+        android:id="@+id/choseGameTextView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:background="#FFD400"
+        android:fontFamily="@font/aclonica"
+        android:text=" CHOOSE PARAMETERS TO SEARCH: "
+        android:textColor="#000000"
+        android:textColorHint="#FFFFFF"
+        android:textColorLink="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/choseGameTextView"
+        app:layout_constraintTop_toBottomOf="@+id/gameAutoComplete" />
+
+    <ImageView
+        android:id="@+id/tlozImage"
+        android:layout_width="114dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/tlozicon" />
+
+    <CheckBox
+        android:id="@+id/charactersCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:checked="false"
+        android:fontFamily="@font/aclonica"
+        android:text="CHARACTERS"
+        android:textColor="#000000"
+        app:buttonTint="#FFE600"
+        app:layout_constraintStart_toStartOf="@+id/choseGameTextView2"
+        app:layout_constraintTop_toBottomOf="@+id/choseGameTextView2" />
+
+    <CheckBox
+        android:id="@+id/monstersCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:checked="false"
+        android:fontFamily="@font/aclonica"
+        android:text="MONSTERS"
+        android:textColor="#000000"
+        app:buttonTint="#FFE600"
+        app:layout_constraintBottom_toBottomOf="@+id/charactersCheckBox"
+        app:layout_constraintStart_toEndOf="@+id/charactersCheckBox"
+        app:layout_constraintTop_toTopOf="@+id/charactersCheckBox" />
+
+    <CheckBox
+        android:id="@+id/placesCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:fontFamily="@font/aclonica"
+        android:text="PLACES"
+        android:textColor="#000000"
+        app:buttonTint="#FFE600"
+        app:layout_constraintBottom_toBottomOf="@+id/bossesCheckBox"
+        app:layout_constraintStart_toStartOf="@+id/monstersCheckBox"
+        app:layout_constraintTop_toTopOf="@+id/bossesCheckBox"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <CheckBox
+        android:id="@+id/dungeonsCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:fontFamily="@font/aclonica"
+        android:text="DUNGEONS"
+        android:textColor="#000000"
+        app:buttonTint="#FFE600"
+        app:layout_constraintBottom_toBottomOf="@+id/itemsCheckBox"
+        app:layout_constraintStart_toStartOf="@+id/placesCheckBox"
+        app:layout_constraintTop_toTopOf="@+id/itemsCheckBox"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <CheckBox
+        android:id="@+id/bossesCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/aclonica"
+        android:text="FINAL BOSSES"
+        android:textColor="#000000"
+        app:buttonTint="#FFE600"
+        app:layout_constraintStart_toStartOf="@+id/charactersCheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/charactersCheckBox" />
+
+    <CheckBox
+        android:id="@+id/itemsCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/aclonica"
+        android:text="ITEMS"
+        android:textColor="#000000"
+        app:buttonTint="#FFE600"
+        app:layout_constraintStart_toStartOf="@+id/bossesCheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/bossesCheckBox" />
+
+    <Button
+        android:id="@+id/searchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/aclonica"
+        android:text="SEARCH"
+        android:textColor="#000000"
+        app:backgroundTint="#FFD400"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dungeonsCheckBox" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
