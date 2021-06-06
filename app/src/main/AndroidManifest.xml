@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ZeldaDatabase">
+        <activity android:name=".showDataActivity.ShowDataView" />
         <activity android:name=".insertDataActivity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

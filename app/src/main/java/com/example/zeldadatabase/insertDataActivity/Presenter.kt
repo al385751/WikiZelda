@@ -8,7 +8,7 @@ class Presenter(val view: IMainView, val model: Model) {
     private var actualGame: Game? = null
 
     init {
-        view.searchEnabled = false
+        //view.searchEnabled = false
         view.progressBarVisible = true
         view.everythingVisible = false
 

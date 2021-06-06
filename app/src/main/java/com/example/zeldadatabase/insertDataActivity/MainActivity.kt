@@ -1,5 +1,6 @@
 package com.example.zeldadatabase.insertDataActivity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -10,6 +11,7 @@ import android.widget.*
 import com.example.zeldadatabase.R
 import com.example.zeldadatabase.additionalClasses.Game
 import com.example.zeldadatabase.modelStuff.Model
+import com.example.zeldadatabase.showDataActivity.ShowDataView
 
 class MainActivity : AppCompatActivity(), IMainView {
     lateinit var autoCompleteZeldaGames : AutoCompleteTextView
@@ -114,6 +116,8 @@ class MainActivity : AppCompatActivity(), IMainView {
     }
 
     override fun searchInfo(view: View) {
-        TODO("Not yet implemented")
+        val intent = Intent(this, ShowDataView::class.java)
+        intent.putExtra("Game", presenter.getGame())
+        startActivity(intent)
     }
 }

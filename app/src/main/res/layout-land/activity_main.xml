@@ -9,8 +9,8 @@
 
     <AutoCompleteTextView
         android:id="@+id/gameAutoComplete"
-        android:layout_width="351dp"
-        android:layout_height="38dp"
+        android:layout_width="412dp"
+        android:layout_height="37dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
         android:completionThreshold="1"
@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="10dp"
         android:background="#FFD400"
         android:fontFamily="@font/aclonica"
         android:text=" CHOOSE A GAME: "
@@ -43,7 +43,7 @@
         android:id="@+id/choseParametersTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="35dp"
         android:background="#FFD400"
         android:fontFamily="@font/aclonica"
         android:text=" CHOOSE PARAMETERS TO SEARCH: "
@@ -51,32 +51,20 @@
         android:textColorHint="#FFFFFF"
         android:textColorLink="#FFFFFF"
         android:textSize="18sp"
-        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="@+id/choseGameTextView"
         app:layout_constraintTop_toBottomOf="@+id/gameAutoComplete" />
 
-    <ImageView
-        android:id="@+id/tlozImage"
-        android:layout_width="114dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/tlozicon" />
-
     <CheckBox
-        android:id="@+id/charactersCheckBox"
+        android:id="@+id/itemsCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:checked="false"
         android:fontFamily="@font/aclonica"
-        android:text="CHARACTERS"
+        android:text="ITEMS"
         android:textColor="#000000"
         app:buttonTint="#FFE600"
-        app:layout_constraintStart_toStartOf="@+id/choseParametersTextView"
-        app:layout_constraintTop_toBottomOf="@+id/choseParametersTextView" />
+        app:layout_constraintBottom_toBottomOf="@+id/placesCheckBox"
+        app:layout_constraintStart_toStartOf="@+id/monstersCheckBox"
+        app:layout_constraintTop_toTopOf="@+id/placesCheckBox" />
 
     <CheckBox
         android:id="@+id/monstersCheckBox"
@@ -96,15 +84,28 @@
         android:id="@+id/placesCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:checked="false"
         android:fontFamily="@font/aclonica"
         android:text="PLACES"
         android:textColor="#000000"
         app:buttonTint="#FFE600"
-        app:layout_constraintBottom_toBottomOf="@+id/bossesCheckBox"
-        app:layout_constraintStart_toStartOf="@+id/monstersCheckBox"
-        app:layout_constraintTop_toTopOf="@+id/bossesCheckBox"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="@+id/charactersCheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/charactersCheckBox" />
+
+    <CheckBox
+        android:id="@+id/charactersCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="20dp"
+        android:checked="false"
+        android:fontFamily="@font/aclonica"
+        android:text="CHARACTERS"
+        android:textColor="#000000"
+        app:buttonTint="#FFE600"
+        app:layout_constraintStart_toStartOf="@+id/choseParametersTextView"
+        app:layout_constraintTop_toBottomOf="@+id/choseParametersTextView" />
 
     <CheckBox
         android:id="@+id/dungeonsCheckBox"
@@ -116,47 +117,45 @@
         android:textColor="#000000"
         app:buttonTint="#FFE600"
         app:layout_constraintBottom_toBottomOf="@+id/itemsCheckBox"
-        app:layout_constraintStart_toStartOf="@+id/placesCheckBox"
-        app:layout_constraintTop_toTopOf="@+id/itemsCheckBox"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="@+id/bossesCheckBox"
+        app:layout_constraintTop_toTopOf="@+id/itemsCheckBox" />
 
     <CheckBox
         android:id="@+id/bossesCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="70dp"
         android:fontFamily="@font/aclonica"
         android:text="FINAL BOSSES"
         android:textColor="#000000"
         app:buttonTint="#FFE600"
-        app:layout_constraintStart_toStartOf="@+id/charactersCheckBox"
-        app:layout_constraintTop_toBottomOf="@+id/charactersCheckBox" />
+        app:layout_constraintBottom_toBottomOf="@+id/monstersCheckBox"
+        app:layout_constraintStart_toEndOf="@+id/monstersCheckBox"
+        app:layout_constraintTop_toTopOf="@+id/monstersCheckBox" />
 
-    <CheckBox
-        android:id="@+id/itemsCheckBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/aclonica"
-        android:text="ITEMS"
-        android:textColor="#000000"
-        app:buttonTint="#FFE600"
-        app:layout_constraintStart_toStartOf="@+id/bossesCheckBox"
-        app:layout_constraintTop_toBottomOf="@+id/bossesCheckBox" />
+    <ImageView
+        android:id="@+id/tlozImage"
+        android:layout_width="84dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/tlozicon" />
 
     <Button
         android:id="@+id/searchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="120dp"
         android:fontFamily="@font/aclonica"
         android:onClick="searchInfo"
         android:text="SEARCH"
         android:textColor="#000000"
         app:backgroundTint="#FFD400"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dungeonsCheckBox" />
+        app:layout_constraintBottom_toBottomOf="@+id/gameAutoComplete"
+        app:layout_constraintStart_toEndOf="@+id/gameAutoComplete"
+        app:layout_constraintTop_toTopOf="@+id/gameAutoComplete" />
 
     <ProgressBar
         android:id="@+id/progressBar"
