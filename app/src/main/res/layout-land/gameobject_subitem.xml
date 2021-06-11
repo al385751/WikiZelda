@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    android:layout_marginStart="5sp"
+    app:cardBackgroundColor="@color/green"
+    app:cardElevation="3dp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:id="@+id/targetLayout"
+        android:layout_width="match_parent"
+        android:layout_height="136dp">
+
+        <TextView
+            android:id="@+id/gameTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            android:focusable="false"
+            android:fontFamily="@font/aclonica"
+            android:text="The Legend Of Zelda"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/nameResultTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/descriptionTextView"
+            android:layout_alignBottom="@+id/descriptionTextView"
+            android:layout_marginStart="370dp"
+            android:layout_marginTop="-25dp"
+            android:layout_marginBottom="25dp"
+            android:layout_toEndOf="@+id/nameTextView"
+            android:focusable="false"
+            android:fontFamily="@font/aclonica"
+            android:text="Midna"
+            android:textAlignment="textEnd"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/descriptionResultTextView"
+            android:layout_width="152dp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/descriptionTextView"
+            android:layout_alignBottom="@+id/descriptionTextView"
+            android:layout_marginStart="222dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="-1dp"
+            android:layout_toEndOf="@+id/descriptionTextView"
+            android:focusable="false"
+            android:fontFamily="@font/aclonica"
+            android:text="CLICK TO EXPAND"
+            android:textAlignment="textEnd"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/nameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/gameTitleTextView"
+            android:layout_marginStart="110dp"
+            android:layout_marginTop="11dp"
+            android:focusable="false"
+            android:fontFamily="@font/aclonica"
+            android:text="Name:"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/descriptionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nameTextView"
+            android:layout_marginStart="110dp"
+            android:layout_marginTop="10dp"
+            android:focusable="false"
+            android:fontFamily="@font/aclonica"
+            android:text="Description:"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

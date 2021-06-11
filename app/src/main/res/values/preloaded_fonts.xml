@@ -2,5 +2,7 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/aclonica</item>
+        <item>@font/creepster</item>
+        <item>@font/miltonian_tattoo</item>
     </array>
 </resources>
