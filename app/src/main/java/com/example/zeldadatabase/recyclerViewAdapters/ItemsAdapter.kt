@@ -1,4 +1,4 @@
-package com.example.zeldadatabase.additionalClasses
+package com.example.zeldadatabase.recyclerViewAdapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.zeldadatabase.R
+import com.example.zeldadatabase.additionalClasses.GameObjectAdapter
 
 class ItemsAdapter(val itemDataList: ArrayList<ItemFromRecycleView>) : RecyclerView.Adapter<ItemsAdapter.ItemHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
@@ -18,7 +19,7 @@ class ItemsAdapter(val itemDataList: ArrayList<ItemFromRecycleView>) : RecyclerV
         return itemDataList.size
     }
 
-    override fun onBindViewHolder(holder: ItemsAdapter.ItemHolder, position: Int) {
+    override fun onBindViewHolder(holder: ItemHolder, position: Int) {
         holder.render(itemDataList[position])
     }
 

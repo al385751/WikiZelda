@@ -4,8 +4,6 @@ import android.view.View
 import com.example.zeldadatabase.additionalClasses.Game
 
 interface IMainView {
-    var searchEnabled: Boolean
-
     var progressBarVisible: Boolean
     var everythingVisible: Boolean
 

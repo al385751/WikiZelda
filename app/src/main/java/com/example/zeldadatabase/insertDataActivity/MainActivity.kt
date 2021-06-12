@@ -52,11 +52,6 @@ class MainActivity : AppCompatActivity(), IMainView {
         presenter = Presenter(this, model)
     }
 
-    override var searchEnabled: Boolean
-        get() = searchButton.isEnabled
-        set(value) {
-            searchButton.isEnabled = value
-        }
     override var progressBarVisible: Boolean
         get() = progressBar.visibility == View.VISIBLE
         set(value) {
@@ -116,8 +111,17 @@ class MainActivity : AppCompatActivity(), IMainView {
     }
 
     override fun searchInfo(view: View) {
-        val intent = Intent(this, ShowDataView::class.java)
-        intent.putExtra("Game", presenter.getGame())
-        startActivity(intent)
+        if (presenter.getGame() != null) {
+            if (bossesCheckBox.isChecked || characterCheckBox.isChecked || dungeonCheckBox.isChecked ||
+                    itemsCheckBox.isChecked || monstersCheckBox.isChecked || placesCheckBox.isChecked) {
+                val intent = Intent(this, ShowDataView::class.java)
+                intent.putExtra("Game", presenter.getGame())
+                startActivity(intent)
+            }
+
+            else showError("You have to select some parameters to search in the selected game")
+        }
+
+        else showError("You have to select a game in which you want to do the search")
     }
 }

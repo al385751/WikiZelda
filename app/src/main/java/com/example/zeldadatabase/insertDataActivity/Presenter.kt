@@ -1,6 +1,7 @@
 package com.example.zeldadatabase.insertDataActivity
 
 import com.android.volley.Response
+import com.android.volley.VolleyError
 import com.example.zeldadatabase.additionalClasses.Game
 import com.example.zeldadatabase.modelStuff.Model
 
@@ -20,14 +21,18 @@ class Presenter(val view: IMainView, val model: Model) {
             } else {
                 view.showError("No games in the returned list (possible BAD JSON)")
             }
-        }, Response.ErrorListener { error -> view.showError(error.toString()) })
+        }, Response.ErrorListener { error ->
+            if (error is VolleyError)
+                view.showError("The API is unresponsive now, please try again")
+            else view.showError(error.toString())
+        })
     }
 
     fun setChosenGame(game: Game) {
         this.actualGame = game
     }
 
-    fun getGame() : Game {
-        return this.actualGame!!
+    fun getGame() : Game? {
+        return this.actualGame
     }
 }

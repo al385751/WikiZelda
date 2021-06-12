@@ -1,8 +1,6 @@
 package com.example.zeldadatabase.showDataActivity
 
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
@@ -11,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.zeldadatabase.R
 import com.example.zeldadatabase.additionalClasses.Game
 import com.example.zeldadatabase.additionalClasses.GameObject
-import com.example.zeldadatabase.additionalClasses.ItemFromRecycleView
-import com.example.zeldadatabase.additionalClasses.ItemsAdapter
+import com.example.zeldadatabase.recyclerViewAdapters.ItemFromRecycleView
+import com.example.zeldadatabase.recyclerViewAdapters.ItemsAdapter
 import com.example.zeldadatabase.modelStuff.Model
 
 class ShowDataView : AppCompatActivity(), IShowDataView {
@@ -50,7 +48,7 @@ class ShowDataView : AppCompatActivity(), IShowDataView {
         val item1 = ItemFromRecycleView("CHARACTERS", mutableListOf(gameObject1, gameObject2) as ArrayList<GameObject>)
         val item2 = ItemFromRecycleView("DUNGEONS", mutableListOf(gameObject3, gameObject4, gameObject1) as ArrayList<GameObject>)
 
-        val items = mutableListOf<ItemFromRecycleView>(item1, item2) as ArrayList<ItemFromRecycleView>
+        val items = mutableListOf(item1, item2) as ArrayList<ItemFromRecycleView>
         createRecyclerView(items)
     }
 
@@ -60,7 +58,7 @@ class ShowDataView : AppCompatActivity(), IShowDataView {
             progressBar.visibility = if (value) View.VISIBLE else View.GONE
         }
 
-    fun createRecyclerView(itemList: ArrayList<ItemFromRecycleView>) {
+    override fun createRecyclerView(itemList: ArrayList<ItemFromRecycleView>) {
         val adapter = ItemsAdapter(itemList)
         rvItems.layoutManager = LinearLayoutManager(this)
         rvItems.adapter = adapter
