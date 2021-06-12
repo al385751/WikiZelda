@@ -6,4 +6,5 @@ interface IShowDataView {
     var progressBarVisible: Boolean
 
     fun createRecyclerView(itemList: ArrayList<ItemFromRecycleView>)
+    fun showImage()
 }
