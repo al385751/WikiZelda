@@ -1,8 +1,6 @@
 package com.example.zeldadatabase.showDataActivity
 
-import android.graphics.Bitmap
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
@@ -15,10 +13,10 @@ import com.example.zeldadatabase.R
 import com.example.zeldadatabase.additionalClasses.Game
 import com.example.zeldadatabase.additionalClasses.GameObject
 import com.example.zeldadatabase.dialogClasses.GameDialog
-import com.example.zeldadatabase.recyclerViewAdapters.ItemFromRecycleView
+import com.example.zeldadatabase.additionalClasses.ItemFromRecycleView
+import com.example.zeldadatabase.dialogClasses.GameObjectDialog
 import com.example.zeldadatabase.recyclerViewAdapters.ItemsAdapter
 import com.example.zeldadatabase.modelStuff.Model
-import kotlin.math.log
 
 class ShowDataView : AppCompatActivity(), IShowDataView {
 
@@ -57,15 +55,16 @@ class ShowDataView : AppCompatActivity(), IShowDataView {
 
         nameGameTextView.text = game.toString()
 
-        val gameObject1 = GameObject("ITEM 1", "Este es el item 1")
-        val gameObject2 = GameObject("ITEM 2", "Este es el item 2")
+        val gameObject1 = GameObject("Stone Tower Temple Giant", "Este es el item 1")
+        val gameObject2 = GameObject("Aria", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
         val gameObject3 = GameObject("ITEM 3", "Este es el item 3")
         val gameObject4 = GameObject("ITEM 4", "Este es el item 4")
 
         val item1 = ItemFromRecycleView("CHARACTERS", mutableListOf(gameObject1, gameObject2) as ArrayList<GameObject>)
         val item2 = ItemFromRecycleView("DUNGEONS", mutableListOf(gameObject3, gameObject4, gameObject1) as ArrayList<GameObject>)
+        val item3 = ItemFromRecycleView("FINAL BOSSES", mutableListOf(gameObject1) as ArrayList<GameObject>)
 
-        val items = mutableListOf(item1, item2) as ArrayList<ItemFromRecycleView>
+        val items = mutableListOf(item1, item2, item3) as ArrayList<ItemFromRecycleView>
 
         createRecyclerView(items)
         setCurrentImage()
@@ -82,7 +81,7 @@ class ShowDataView : AppCompatActivity(), IShowDataView {
         }
 
     override fun createRecyclerView(itemList: ArrayList<ItemFromRecycleView>) {
-        val adapter = ItemsAdapter(itemList)
+        val adapter = ItemsAdapter(itemList, this)
         rvItems.layoutManager = LinearLayoutManager(this)
         rvItems.adapter = adapter
     }
@@ -130,5 +129,10 @@ class ShowDataView : AppCompatActivity(), IShowDataView {
     override fun showGame(view: View) {
         val gameDialog = GameDialog(game!!, currentGameImage)
         gameDialog.show(supportFragmentManager, "game dialog")
+    }
+
+    fun showGameObject(gameObject: GameObject) {
+        val gameObjectDialog = GameObjectDialog(gameObject)
+        gameObjectDialog.show(supportFragmentManager, "gameobject dialog")
     }
 }

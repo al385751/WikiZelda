@@ -4,14 +4,13 @@
     android:layout_height="120dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="10dp"
-    android:layout_marginStart="5sp"
     app:cardBackgroundColor="@color/green"
     app:cardElevation="3dp"
     app:cardUseCompatPadding="true">
 
     <RelativeLayout
         android:id="@+id/targetLayout"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="136dp">
 
         <TextView
@@ -28,13 +27,13 @@
 
         <TextView
             android:id="@+id/nameResultTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="377dp"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/descriptionTextView"
-            android:layout_alignBottom="@+id/descriptionTextView"
-            android:layout_marginStart="370dp"
-            android:layout_marginTop="-25dp"
-            android:layout_marginBottom="25dp"
+            android:layout_alignTop="@+id/nameTextView"
+            android:layout_alignBottom="@+id/nameTextView"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="-1dp"
             android:layout_toEndOf="@+id/nameTextView"
             android:focusable="false"
             android:fontFamily="@font/aclonica"
@@ -49,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/descriptionTextView"
             android:layout_alignBottom="@+id/descriptionTextView"
-            android:layout_marginStart="222dp"
+            android:layout_marginStart="196dp"
             android:layout_marginTop="1dp"
             android:layout_marginBottom="-1dp"
             android:layout_toEndOf="@+id/descriptionTextView"

@@ -1,7 +1,7 @@
 package com.example.zeldadatabase.showDataActivity
 
 import android.view.View
-import com.example.zeldadatabase.recyclerViewAdapters.ItemFromRecycleView
+import com.example.zeldadatabase.additionalClasses.ItemFromRecycleView
 
 interface IShowDataView {
     var progressBarVisible: Boolean

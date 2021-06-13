@@ -1,4 +1,4 @@
-package com.example.zeldadatabase.recyclerViewAdapters
+package com.example.zeldadatabase.additionalClasses
 
 import com.example.zeldadatabase.additionalClasses.GameObject
 

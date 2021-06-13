@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/masterSwordImageView"
+        android:layout_width="121dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/mastersword" />
+
+    <TextView
+        android:id="@+id/gameObjectTitleTextView"
+        android:layout_width="203dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/miltonian_tattoo"
+        android:text="Midna"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/masterSwordImageView"
+        app:layout_constraintStart_toStartOf="@+id/masterSwordImageView"
+        app:layout_constraintTop_toBottomOf="@+id/masterSwordImageView" />
+
+    <TextView
+        android:id="@+id/gameObjectDescriptionTextView"
+        android:layout_width="391dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/aclonica"
+        android:text="Malladus is the primary antagonist of Spirit Tracks. He is a powerful demon that once terrorized the land that would eventually be home to the new kingdom of Hyrule. He was locked away beneath the altar of the Tower of Spirits by the Spirits of Good of the land after a prolonged war between them. The Spirit Tracks and the Tower of Spirits act as the lock to Malladus's underground prison, and as long as they remained intact, Malladus would be safely bound within."
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/gameObjectTitleTextView"
+        app:layout_constraintStart_toStartOf="@+id/gameObjectTitleTextView"
+        app:layout_constraintTop_toBottomOf="@+id/gameObjectTitleTextView" />
+</androidx.constraintlayout.widget.ConstraintLayout>
