@@ -89,7 +89,7 @@ class Network private constructor(context: Context) {
                     if (appearances[j] == "$BASE_URL/$GAMES/$gameId") {
                         val name = gameObject.getString(NAME)
                         val description = gameObject.getString(DESCRIPTION_LABEL)
-                        characters.add(Character(name, description))
+                        characters.add(Character(name, description, gameId))
                     }
                 }
             }
@@ -123,7 +123,7 @@ class Network private constructor(context: Context) {
                     if (appearances[j] == "$BASE_URL/$GAMES/$gameId") {
                         val name = gameObject.getString(NAME)
                         val description = gameObject.getString(DESCRIPTION_LABEL)
-                        monsters.add(Monster(name, description))
+                        monsters.add(Monster(name, description, gameId))
                     }
                 }
             }
@@ -157,7 +157,7 @@ class Network private constructor(context: Context) {
                     if (appearances[j] == "$BASE_URL/$GAMES/$gameId") {
                         val name = gameObject.getString(NAME)
                         val description = gameObject.getString(DESCRIPTION_LABEL)
-                        bosses.add(FinalBoss(name, description))
+                        bosses.add(FinalBoss(name, description, gameId))
                     }
                 }
             }
@@ -191,7 +191,7 @@ class Network private constructor(context: Context) {
                     if (appearances[j] == "$BASE_URL/$GAMES/$gameId") {
                         val name = gameObject.getString(NAME)
                         val description = gameObject.getString(DESCRIPTION_LABEL)
-                        places.add(Place(name, description))
+                        places.add(Place(name, description, gameId))
                     }
                 }
             }
@@ -225,7 +225,7 @@ class Network private constructor(context: Context) {
                     if (games[j] == gameId) {
                         val name = gameObject.getString(NAME)
                         val description = gameObject.getString(DESCRIPTION_LABEL)
-                        items.add(Item(name, description))
+                        items.add(Item(name, description, gameId))
                     }
                 }
             }
@@ -259,7 +259,7 @@ class Network private constructor(context: Context) {
                     if (appearances[j] == "$BASE_URL/$GAMES/$gameId") {
                         val name = gameObject.getString(NAME)
                         val description = gameObject.getString(DESCRIPTION_LABEL)
-                        dungeons.add(Dungeon(name, description))
+                        dungeons.add(Dungeon(name, description, gameId))
                     }
                 }
             }

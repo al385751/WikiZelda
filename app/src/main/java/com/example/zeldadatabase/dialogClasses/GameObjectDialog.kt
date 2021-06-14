@@ -25,7 +25,7 @@ class GameObjectDialog(_gameObject: GameObject) : AppCompatDialogFragment() {
         gameObjectDescriptionTextView = view.findViewById(R.id.gameObjectDescriptionTextView)
 
         gameObjectTitleTextView.text = gameObject.title
-        gameObjectDescriptionTextView.text = gameObject.description
+        gameObjectDescriptionTextView.text = gameObject.descr
 
         builder.setView(view)
                 .setPositiveButton("CLOSE") { dialog, which ->

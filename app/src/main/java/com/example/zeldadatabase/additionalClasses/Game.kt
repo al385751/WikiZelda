@@ -2,8 +2,11 @@ package com.example.zeldadatabase.additionalClasses
 
 import android.os.Parcel
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-class Game (val title : String, val id: String, val description: String, val released : String) : Parcelable {
+@Entity(tableName = "Game")
+class Game (val title : String, @PrimaryKey val id: String, val description: String, val released : String) : Parcelable {
     constructor(parcel: Parcel) : this(
             parcel.readString()!!,
             parcel.readString()!!,

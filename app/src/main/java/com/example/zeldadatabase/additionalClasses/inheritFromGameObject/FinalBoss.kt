@@ -1,6 +1,18 @@
 package com.example.zeldadatabase.additionalClasses.inheritFromGameObject
 
+import androidx.room.Entity
+import androidx.room.ForeignKey
+import com.example.zeldadatabase.additionalClasses.Game
 import com.example.zeldadatabase.additionalClasses.GameObject
 
-class FinalBoss(val _name: String, val _description: String) : GameObject(_name, _description) {
+@Entity(primaryKeys = ["name", "gameId"],
+    foreignKeys = [ForeignKey(
+        entity = Game::class,
+        parentColumns = arrayOf("id"),
+        childColumns = arrayOf("gameId")
+    )],
+    tableName = "FinalBoss",
+    indices = [androidx.room.Index("gameId")])
+
+class FinalBoss(val name: String, val description: String, val gameId: String) : GameObject(name, description, gameId) {
 }
