@@ -69,6 +69,26 @@ class ShowDataView : AppCompatActivity(), IShowDataView {
             presenter.getCharacters(game)
         }
 
+        else if (monsters) {
+            presenter.getMonsters(game)
+        }
+
+        else if (bosses) {
+            presenter.getBosses(game)
+        }
+
+        else if (places) {
+            presenter.getPlaces(game)
+        }
+
+        else if (items) {
+            presenter.getItems(game)
+        }
+
+        else {
+            presenter.getDungeons(game)
+        }
+
         setCurrentImage()
 
         gameImageView.setImageResource(currentGameImage)
@@ -80,6 +100,12 @@ class ShowDataView : AppCompatActivity(), IShowDataView {
         get() = progressBar.visibility == View.VISIBLE
         set(value) {
             progressBar.visibility = if (value) View.VISIBLE else View.GONE
+        }
+
+    override var recycleViewVisible: Boolean
+        get() = rvItems.visibility == View.VISIBLE
+        set(value) {
+            rvItems.visibility = if (value) View.VISIBLE else View.GONE
         }
 
     override fun createRecyclerView(itemList: ArrayList<ItemFromRecycleView>) {
