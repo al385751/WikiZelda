@@ -116,6 +116,14 @@ class MainActivity : AppCompatActivity(), IMainView {
                     itemsCheckBox.isChecked || monstersCheckBox.isChecked || placesCheckBox.isChecked) {
                 val intent = Intent(this, ShowDataView::class.java)
                 intent.putExtra("Game", presenter.getGame())
+
+                intent.putExtra("Characters", characterCheckBox.isChecked)
+                intent.putExtra("Dungeons", dungeonCheckBox.isChecked)
+                intent.putExtra("FinalBosses", bossesCheckBox.isChecked)
+                intent.putExtra("Items", itemsCheckBox.isChecked)
+                intent.putExtra("Monsters", monstersCheckBox.isChecked)
+                intent.putExtra("Places", placesCheckBox.isChecked)
+
                 startActivity(intent)
             }
 

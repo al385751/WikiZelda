@@ -1,6 +1,7 @@
 package com.example.zeldadatabase.showDataActivity
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
@@ -10,17 +11,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.zeldadatabase.R
-import com.example.zeldadatabase.additionalClasses.Game
-import com.example.zeldadatabase.additionalClasses.GameObject
+import com.example.zeldadatabase.additionalClasses.*
+import com.example.zeldadatabase.additionalClasses.inheritFromGameObject.Character
+import com.example.zeldadatabase.additionalClasses.inheritFromGameObject.FinalBoss
+import com.example.zeldadatabase.additionalClasses.inheritFromGameObject.Monster
+import com.example.zeldadatabase.additionalClasses.inheritFromGameObject.Place
 import com.example.zeldadatabase.dialogClasses.GameDialog
-import com.example.zeldadatabase.additionalClasses.ItemFromRecycleView
 import com.example.zeldadatabase.dialogClasses.GameObjectDialog
 import com.example.zeldadatabase.recyclerViewAdapters.ItemsAdapter
 import com.example.zeldadatabase.modelStuff.Model
 
 class ShowDataView : AppCompatActivity(), IShowDataView {
 
-    var game : Game? = null
+    lateinit var game : Game
     var characters : Boolean = false
     var monsters : Boolean = false
     var bosses : Boolean = false
@@ -42,7 +45,14 @@ class ShowDataView : AppCompatActivity(), IShowDataView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activiy_showdata_main)
 
-        game = intent.getParcelableExtra("Game")
+        game = intent.getParcelableExtra("Game")!!
+
+        characters = intent.getBooleanExtra("Characters", false)
+        monsters = intent.getBooleanExtra("Monsters", false)
+        bosses = intent.getBooleanExtra("FinalBosses", false)
+        places = intent.getBooleanExtra("Places", false)
+        items = intent.getBooleanExtra("Items", false)
+        dungeons = intent.getBooleanExtra("Dungeons", false)
 
         progressBar = findViewById(R.id.progressBar2)
         rvItems = findViewById(R.id.itemDataRecyclerView)
@@ -55,18 +65,10 @@ class ShowDataView : AppCompatActivity(), IShowDataView {
 
         nameGameTextView.text = game.toString()
 
-        val gameObject1 = GameObject("Stone Tower Temple Giant", "Este es el item 1")
-        val gameObject2 = GameObject("Aria", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-        val gameObject3 = GameObject("ITEM 3", "Este es el item 3")
-        val gameObject4 = GameObject("ITEM 4", "Este es el item 4")
+        if (characters) {
+            presenter.getCharacters(game)
+        }
 
-        val item1 = ItemFromRecycleView("CHARACTERS", mutableListOf(gameObject1, gameObject2) as ArrayList<GameObject>)
-        val item2 = ItemFromRecycleView("DUNGEONS", mutableListOf(gameObject3, gameObject4, gameObject1) as ArrayList<GameObject>)
-        val item3 = ItemFromRecycleView("FINAL BOSSES", mutableListOf(gameObject1) as ArrayList<GameObject>)
-
-        val items = mutableListOf(item1, item2, item3) as ArrayList<ItemFromRecycleView>
-
-        createRecyclerView(items)
         setCurrentImage()
 
         gameImageView.setImageResource(currentGameImage)
@@ -129,10 +131,5 @@ class ShowDataView : AppCompatActivity(), IShowDataView {
     override fun showGame(view: View) {
         val gameDialog = GameDialog(game!!, currentGameImage)
         gameDialog.show(supportFragmentManager, "game dialog")
-    }
-
-    fun showGameObject(gameObject: GameObject) {
-        val gameObjectDialog = GameObjectDialog(gameObject)
-        gameObjectDialog.show(supportFragmentManager, "gameobject dialog")
     }
 }
